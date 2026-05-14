@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: portfolio-personal
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run dashboard.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --browser.gatherUsageStats false
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: APP_TITLE
+        value: Portfolio Personal
+      - key: APP_SUBTITLE
+        value: Mi Centro de Inteligencia Financiera
+      - key: APP_ICON
+        value: "🧠"
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
